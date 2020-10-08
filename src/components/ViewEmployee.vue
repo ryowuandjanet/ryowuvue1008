@@ -59,10 +59,12 @@
           .get()
           .then(querySnapshot => {
             querySnapshot.forEach(doc => {
-              this.employee_id = doc.data().employee_id
-              this.name = doc.data().name
-              this.dept = doc.data().dept
-              this.position = doc.data().position
+              next(vm => {
+                vm.employee_id = doc.data().employee_id
+                vm.name = doc.data().name
+                vm.dept = doc.data().dept
+                vm.position = doc.data().position
+              })
             })
           })
       },
